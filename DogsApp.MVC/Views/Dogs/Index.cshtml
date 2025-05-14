@@ -5,6 +5,17 @@
 <head>
 	<title>Dogs</title>
 	<link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+	<style>
+		button {
+			width: 80px;
+			padding: 5px;
+			font-size: 12px;
+		}
+		form {
+			display: inline-block;
+			margin-right: 10px;
+		}
+	</style>
 </head>
 <body>
 	<h1>Dogs</h1>
@@ -14,9 +25,11 @@
 		{
 			<li>
 				<h2>@dog.Name age:@dog.Age</h2>
-				<a href="/edit/@dog.Id">edit</a>
+				<form action="/edit/@dog.Id" method="get" style="display:inline;">
+                    <button> "edit"</button>
+                </form>
 				<form action="/delete/@dog.Id" method="post">
-					<input type="submit" value="delete" />
+					<button> "delete"</button>
 					</form>
 			</li>
 		}
