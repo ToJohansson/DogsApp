@@ -13,8 +13,9 @@
 		@foreach (var dog in Model)
 		{
 			<li>
-				<h2>@dog.Name</h2>
+				<h2>@dog.Name age:@dog.Age</h2>
 				<a href="/edit/@dog.Id">edit</a>
+				<a href="/delete/@dog.Id">delete</a>
 			</li>
 		}
 	</ul>

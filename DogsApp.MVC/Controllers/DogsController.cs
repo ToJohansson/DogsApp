@@ -29,8 +29,8 @@ namespace DogsApp.MVC.Controllers
         [HttpGet("edit/{id:int}")]
         public IActionResult Edit(int id)
         {
-            var dog = dogService.GetDogById(id);
-            return View(dog);
+            
+            return View(id);
         }
         [HttpPost("edit/{id:int}")]
         public IActionResult Edit(int id, Dog dog)
@@ -38,6 +38,13 @@ namespace DogsApp.MVC.Controllers
             var existingDog = dogService.GetDogById(id);
             existingDog.Name = dog.Name;
             existingDog.Age = dog.Age;
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpPost("delete/{id:int}")]
+        public IActionResult Delete(int id)
+        {
+            var dog = dogService.GetDogById(id);
+            dogService.RemoveDog(dog);
             return RedirectToAction(nameof(Index));
         }
     }
