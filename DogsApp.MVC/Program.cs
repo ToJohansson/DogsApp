@@ -11,5 +11,6 @@ namespace DogsApp.MVC
 
             app.Run();
         }
+        //stanislav inne
     }
 }
