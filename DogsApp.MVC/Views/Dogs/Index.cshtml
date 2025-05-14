@@ -15,7 +15,9 @@
 			<li>
 				<h2>@dog.Name age:@dog.Age</h2>
 				<a href="/edit/@dog.Id">edit</a>
-				<a href="/delete/@dog.Id">delete</a>
+				<form action="/delete/@dog.Id" method="post">
+					<input type="submit" value="delete" />
+					</form>
 			</li>
 		}
 	</ul>

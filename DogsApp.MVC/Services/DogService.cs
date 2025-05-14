@@ -29,7 +29,7 @@ public class DogService
         return dogs.Single(d => d.Id == id);
     }
 
-    internal void RemoveDog(Dog dog)
+    public void RemoveDog(Dog dog)
     {
         dogs.Remove(dog);
     }
