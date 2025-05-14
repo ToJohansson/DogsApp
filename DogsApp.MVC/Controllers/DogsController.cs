@@ -29,8 +29,8 @@ namespace DogsApp.MVC.Controllers
         [HttpGet("edit/{id:int}")]
         public IActionResult Edit(int id)
         {
-            
-            return View(id);
+            var dog = dogService.GetDogById(id);
+            return View(dog);
         }
         [HttpPost("edit/{id:int}")]
         public IActionResult Edit(int id, Dog dog)
