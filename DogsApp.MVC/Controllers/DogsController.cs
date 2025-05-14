@@ -26,6 +26,20 @@ namespace DogsApp.MVC.Controllers
           dogService.AddDog(dog);
             return RedirectToAction(nameof(Index));
         }
+        [HttpGet("edit/{id:int}")]
+        public IActionResult Edit(int id)
+        {
+            var dog = dogService.GetDogById(id);
+            return View(dog);
+        }
+        [HttpPost("edit/{id:int}")]
+        public IActionResult Edit(int id, Dog dog)
+        {
+            var existingDog = dogService.GetDogById(id);
+            existingDog.Name = dog.Name;
+            existingDog.Age = dog.Age;
+            return RedirectToAction(nameof(Index));
+        }
     }
    
 }
